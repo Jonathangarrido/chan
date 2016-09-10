@@ -1,19 +1,7 @@
-- var links = ['base','grid','icons','buttons','form','video','table','card','modal','tabs','slider','helpers'];
+- var links = ['base','grid','icons','buttons'];
 
-nav.nav__lateral
-  span(onclick="navLateral()").nav__icon.icon-navicon
-  .nav__lateral--fondo.full(onclick="navLateral()")
-  nav.nav__lateral--menu.wrapper
+.nav.nav__full
+  span(onclick="nav.full()").nav__icon.icon-navicon
+  nav(onclick="nav.full()").nav__full--barra.wrapper
     ul
-      each link, i in links
-        li
-          if link == 'base'
-            if name == link
-              a.active #{link}
-            else
-              a(href="index.html") #{link}
-          else 
-            if name == link
-              a.active #{link}
-            else
-              a(href="#{link}.html") #{link}
+      li: a(href="#", onclick="nav.full()") HOME

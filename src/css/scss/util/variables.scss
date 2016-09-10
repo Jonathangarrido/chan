@@ -114,7 +114,7 @@ $tittle-size-l :
 /* 6. Colors
    ========================================================================== */
 
-$color-base      	: rgb(59, 89, 182);
+$color-base      	: #009de0;
 $color-base-light	: lighten($color-base, 30%);
 $color-secondary  : #058789; 
 $color-tertiary   : #FFC857; 
@@ -183,7 +183,7 @@ $nav__barra--height              : 3rem;
 $nav__barra--height-desk         : 5rem;
 $nav__barra--top                 : 2rem;
 $nav__barra--separation          : 0.5rem;
-$nav__full--bg                   : rgba($color-base, 0.5);
+$nav__full--bg                   : rgba($color-base, 1);
 $nav__full--separacion           : 1rem;
 $nav__full--separacion-desk      : 2rem;
 $nav__lateral--width             : 15rem;

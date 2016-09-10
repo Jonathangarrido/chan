@@ -2,32 +2,34 @@ extends ./common/base.jade
 
 block vars
   - var name = 'base'
-  - var title = 'Mi estilo - '+ name
+  - var title = 'CHAN'
 
 block content
-  .subtitulo.h4 Tipografia
-  .muestra
-    div
-      h1 h1
-      h2 h2
-      h3 h3
-      h4 h4
-      h5 h5
-      h6 h6
-    div
-  .row.conte-tabs 
-    .c100-s
-      ul.tabs
-        li.tab
-          a(href="#tab1") tab 1
-        li.tab
-          a(href="#tab2") tab 2
-    .c100-s.tab__conte
-      #tab1 
-        pre.tab__codigo
-          code(data-language="html")
-            | .row
-      #tab2 
-        pre.tab__codigo
-          code(data-language="javascript")
-            | function tab(){
+  header.poster
+
+  section.info
+    div.contenedor
+      .info--biografia
+        p
+          | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat quidem natus sed dignissimos doloremque obcaecati, nihil officiis vel libero maxime. Deserunt blanditiis illum illo, aspernatur adipisci vero temporibus. Magni, iste.
+          | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat quidem natus sed dignissimos doloremque obcaecati, nihil officiis vel libero maxime. Deserunt blanditiis illum illo, aspernatur adipisci vero temporibus. Magni, iste.
+          
+      h2.info--frase.h5 "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi rem, voluptas delectus consectetur officia sequi ullam itaque saepe culpa corporis repellat at eius fuga? Nesciunt, dolorum deleniti dolore sed asperiores."
+  
+  section.campana
+    div.contenedor.row
+      .c100-s.c50-l.campana--punto 
+        span.icon-search
+        p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+      .c100-s.c50-l.campana--punto 
+        span.icon-pencil
+        p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+      .c100-s.c50-l.campana--punto 
+        span.icon-link
+        p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+      .c100-s.c50-l.campana--punto 
+        span.icon-send
+        p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+
+  footer.contacto
+    div.contenedor

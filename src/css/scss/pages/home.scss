@@ -1,0 +1,71 @@
+.poster{
+  background: url('#{$image-dir}/poster-mobile.jpg') no-repeat center;
+  background-size: cover;
+  height: 20rem;
+  width: 100vw;
+}
+
+.info{
+  background-color: white;
+  padding: 0 1rem;
+  position: relative;
+  @include triangulo_big_after(white);
+  &--biografia{
+    background-color: white;
+    box-shadow: $shadow;
+    left: 0;
+    padding: 2rem;
+    position: relative;
+    top: -1rem;
+    p{
+      margin-bottom: 0;
+    }
+  }
+  &--frase{
+    font-style: italic;
+    margin-bottom: 0;
+    padding-bottom: 3rem;
+    padding-top: 2rem;
+    text-align: center;
+  }
+  
+}
+
+.campana{
+  background-color: #CC4815;
+  color: white;
+  padding: 13rem 0 7rem;
+  text-align: center;
+  &--punto{
+    padding: 2rem 1rem;
+   
+    span{
+      font-size: 5rem;
+    }
+  } 
+}
+.contacto{
+  padding: 6rem 0;
+}
+
+@include respond-to(l){
+  .poster{
+    background: url('#{$image-dir}/poster-2.jpg') no-repeat center;
+    background-size: cover;
+    height: 80vh;
+    width: 100vw;
+  }
+  .info{
+    padding: 0 1rem;
+    &--biografia{
+      padding: 2rem;
+      top: -5rem;
+    }
+    &--frase{
+      padding-bottom: 4rem;
+      padding-top: 1rem;
+      text-align: center;
+    }
+    
+  }
+}

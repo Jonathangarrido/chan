@@ -119,6 +119,7 @@
       @extend .nav;
       .nav__icon{
         right: $nav__ico--margin;
+        z-index: $index-4;
       }
       &--barra{
         background-color: $nav__full--bg;
@@ -131,6 +132,7 @@
         transform: scale(0.8);
         transition: $animation;
         visibility: collapse;
+        z-index: $index-3;
         li{
           &:not(last-child){
             margin-bottom: $nav__full--separacion;

@@ -12,6 +12,11 @@
   width: 100vw;
 }
 
+.contenedor{
+  @include max-width(800px);
+  position: relative;
+}
+
 .overflow{
   overflow: hidden;
 }

@@ -1,13 +1,11 @@
 block vars
-include ./header.jade 
+include ./head.jade 
 
 
   include ./nav.jade 
 
-  section.nav__lateral__contenido
-    header.titulo.h2.wrapper #{name}
-    section.contenido
-      block content
+  section.contenido
+    block content
   
 
-  include ./script.jade 
+  include ./script.jade
