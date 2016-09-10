@@ -1,0 +1,23 @@
+{
+  "name": "base-gulp",
+  "description": "",
+  "main": "gulpfile.js",
+  "authors": [
+    "jonathan <jonathan.garrido1988@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/Jonathangarrido/base-gulp",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "directory": "src/js/lib",
+  "dependencies": {
+    "jquery": "^3.1.0",
+    "superslides": "^0.6.2",
+    "bxslider-4": "^4.2.5"
+  }
+}

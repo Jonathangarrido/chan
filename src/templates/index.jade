@@ -1,0 +1,33 @@
+extends ./common/base.jade
+
+block vars
+  - var name = 'base'
+  - var title = 'Mi estilo - '+ name
+
+block content
+  .subtitulo.h4 Tipografia
+  .muestra
+    div
+      h1 h1
+      h2 h2
+      h3 h3
+      h4 h4
+      h5 h5
+      h6 h6
+    div
+  .row.conte-tabs 
+    .c100-s
+      ul.tabs
+        li.tab
+          a(href="#tab1") tab 1
+        li.tab
+          a(href="#tab2") tab 2
+    .c100-s.tab__conte
+      #tab1 
+        pre.tab__codigo
+          code(data-language="html")
+            | .row
+      #tab2 
+        pre.tab__codigo
+          code(data-language="javascript")
+            | function tab(){

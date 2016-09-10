@@ -1,0 +1,132 @@
+@if $incluir__table == true{
+  /*------------------------------------
+    ·TABLE
+  ------------------------------------*/ 
+  // JADE
+  // table.table
+  //     thead
+  //       tr
+  //         th 
+  //     tbody
+  //       tr
+  //         td 
+
+  table, th, td {
+   border: none;
+  }
+  .table {
+    width:100%;
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    display: block;
+    position: relative;
+
+    th,
+    td {
+      margin: 0;
+      vertical-align: top;
+    }
+    th { 
+      text-align: left; 
+    }
+    thead {
+      display: block;
+      float: left;
+
+      tr {
+        display: block; 
+      }
+    }
+    tbody {
+      display: block; 
+      width: auto;
+      position: relative;
+      overflow-x: auto;
+      white-space: nowrap;
+
+      tr {
+        display: inline-block;
+        vertical-align: top;
+      }
+    }
+    th {
+      display: block;
+      text-align: right;
+    }
+    td {
+      display: block;
+      min-height: 1.25em;
+      text-align: left;
+    }
+    tr { padding: $table--padding; }
+
+    /* sort out borders */
+    thead {
+      border-right: $table--borde;
+    }
+
+
+    &--striped > tbody {
+      > tr:nth-child(odd) {
+        background-color: $table__striped;
+      }
+
+      > tr > td {
+        border-radius: 0;
+      }
+    }
+    &--bordered tr{
+      border-right: $table--borde;
+    }
+    &--centered {
+      thead tr th, tbody tr td {
+        text-align: center;
+      }
+    }
+    
+
+  }
+
+  // Responsive Table
+  @include respond-to(m){
+
+    .table{
+      thead {
+        display: table-header-group;
+        float: initial;
+        border-right: none;
+        border-bottom: $table--borde;
+        th{
+          text-align: center;
+        }
+        tr {
+          display: table-row;
+        }
+      }
+      tbody {
+        display: table-row-group;
+        tr {
+          display: table-row;
+        }
+      }
+      th, td {
+        display: table-cell;
+        padding: $table--padding-desk;
+      }
+      &--bordered tr{
+        border-right: none;
+        border-bottom: $table--borde;
+      }
+      &--highlight > tbody > tr {
+        transition: background-color .25s ease;
+        &:hover {
+          background-color: $table__striped ;
+        }
+      }
+      
+    }
+
+  }
+}

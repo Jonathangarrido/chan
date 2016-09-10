@@ -1,0 +1,15 @@
+extends ./common/base.jade
+
+block vars
+  - var name = 'icons'
+  - var title = 'Mi estilo - '+ name
+  - var icons = ['search','check','close','pencil','plus','minus','phone','link','navicon','envelope','download','angle-left','angle-right','angle-up','angle-down','ellipsis','send','twitter','youtube','dropbox','google-plus','skype','github','instagram','pinterest','linkedin','spotify','facebook','whatsapp','snapchat'];
+
+block content
+  .muestra
+    .row.iconos
+      each icon, i in icons
+        .c20-s
+          span(class="icon-#{icon}")
+          | icon-#{icon}
+       

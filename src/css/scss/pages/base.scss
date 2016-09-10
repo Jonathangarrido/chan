@@ -1,0 +1,90 @@
+.titulo{
+  width: 100%;
+  background-color: $color-secondary;
+  padding: .7em 0;
+  color: white;
+  text-transform: uppercase;
+  font-weight: lighter;
+  box-shadow: $shadow;
+}
+.contenido{
+  @include max-width();
+  padding: 1rem;
+  text-align: center;
+}
+.muestra{
+   @include max-width();
+}
+.grilla{
+  & div{
+    padding: .5rem;
+    border: solid 1px white;
+    background-color: whitesmoke;
+  }
+}
+.iconos{
+  span{
+    &:before{
+      font-size: 2rem;
+    }
+  }
+
+  &>div{
+    font-size: .8rem;
+    @extend .wrapper;
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+  .icon-twitter{
+    color: $tw;
+  }
+  .icon-pinterest{
+    color: $pinterest;
+  }
+  .icon-google-plus{
+    color: $googleplus;
+  }
+  .icon-linkedin{
+    color: $linkedin;
+  }
+  .icon-youtube{
+    color: $youtube;
+  }
+  .icon-dropbox{
+    color: $dropbox; 
+  }
+  .icon-instagram{
+    background: $instagram;
+    color: white; 
+    padding: .1em .13em;
+    border-radius: .4em;
+    height: 1.2em;
+    width: 1.2em;
+    font-size: 2rem;
+    line-height: 1;
+  }
+  .icon-skype{
+    color: $skype; 
+  }
+  .icon-spotify{
+    color: $spotify; 
+  }
+  .icon-spotify{
+    color: $spotify; 
+  }
+  .icon-facebook{
+    color: $fb; 
+  }
+  .icon-whatsapp{
+    color: $whatsapp; 
+  }
+  .icon-snapchat{
+    color: $snapchat; 
+  }
+}
+
+.conte-form{
+  border-top: 1rem solid $color-secondary;
+  margin-top: 5rem;
+  padding-top: 2rem;
+}

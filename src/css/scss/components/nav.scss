@@ -1,0 +1,286 @@
+@if $incluir__nav == true{
+  /* ------------------------------------
+        ·NAV
+    -------------------------------------*/
+  .nav{
+    a{
+      font-size: $nav--size;
+      font-family: $nav--family;
+      font-weight: $nav--weight;
+      text-transform: capitalize;
+      color: $nav--color; 
+    }
+    .active{
+      color: $nav--color--active ;
+    }
+  }
+  .nav__icon{
+    color: $nav__ico--color;
+    cursor: pointer;
+    position: fixed;
+    font-size: $nav__ico--size;
+    text-shadow: $nav__ico--shadow;
+    top: $nav__ico--margin;
+    z-index: $index-2;
+  }
+
+  @if $incluir__nav--barra == true{
+    // JADE
+    // .nav.nav__barra
+    //   div
+    //     .nav__barra--espacio
+    //       span(onclick="navBarra()").nav__icon.icon-navicon
+    //     .nav__barra--logo
+    //       img(src="images/logo.svg", alt="")
+    //     nav.nav__barra--menu
+    //       a(href="#", onclick="navBarra()") menu1
+
+    // JS requiere Jquery
+    // function navBarra(){
+    //   $( '.nav__barra--menu' ).toggleClass( 'slideInTop');
+    //   $( '.nav__icon' ).toggleClass( 'icon-close icon-navicon');
+    // }
+    .nav__barra{
+      @extend .nav;
+      background-color: $nav--bg;
+      box-shadow: $nav--shadow;
+      position: absolute;
+      top: 0;
+      width: 100vw;
+      .nav__icon{
+        right: $nav__ico--margin;
+      }
+      &>div{
+        align-items: center;
+        background-color: $nav--bg;
+        display: flex;
+        height: $nav__barra--height;
+        justify-content: center;
+        position: relative;
+        @include max-width();
+      }
+      &--espacio{
+        background-color: $nav--bg;
+        height: 100%;
+        left:  0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: $index-2;
+      }
+      &--logo{
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        width: $nav__logo--width;
+        z-index: $index-4;
+        img{ 
+          width: 100%;
+        }
+      }
+      &--menu{
+        background-color: $nav--bg;
+        display: flex;
+        flex-direction: column;
+        left: 0;
+        position: fixed;
+        text-align: center;
+        top: -100%;
+        transition: $animation;
+        width: 100vw;
+        z-index: $index-1;
+        a{
+          padding: .25em 0;
+        }
+      }
+      .slideInTop{
+        top: $nav__barra--height;
+      }
+      &--fixed{
+        position: fixed;
+      }
+    }
+  }
+  @if $incluir__nav--full == true{
+    // JADE
+    // .nav.nav__full
+    //   span(onclick="navFull()").nav__icon.icon-navicon
+    //   nav(onclick="navFull()").nav__full--barra.wrapper
+    //     ul
+    //       li
+    //         a(href="#", onclick="navFull()") menu 1
+    // JS requiere Jquery
+    // function navFull(){
+    //   $('html').toggleClass( 'overflow'); 
+    //   $( '.nav__full--barra' ).toggleClass( 'fadeInright');
+    //   $( '.nav__icon' ).toggleClass( 'icon-close icon-navicon');
+    // }
+    .nav__full{
+      @extend .nav;
+      .nav__icon{
+        right: $nav__ico--margin;
+      }
+      &--barra{
+        background-color: $nav__full--bg;
+        height: 100vh;
+        left: 0;
+        position: fixed;
+        top: 0;
+        width: 100vw;
+        opacity: 0;
+        transform: scale(0.8);
+        transition: $animation;
+        visibility: collapse;
+        li{
+          &:not(last-child){
+            margin-bottom: $nav__full--separacion;
+          }
+        }
+        a{
+          padding: .5rem;
+        }
+      }
+      .fadeInright{
+        opacity: 1;
+        transform: scale(1);
+        visibility: visible;
+      }
+    }
+  }
+  @if $incluir__nav--lateral == true{
+
+    //  JADE
+    // .nav.nav__lateral.full
+    //   span(onclick="navLateral()").nav__icon.icon-navicon
+    //   .nav__lateral--fondo.full(onclick="navLateral()")
+    //   nav.nav__lateral--menu.wrapper
+    //     ul
+    //       li
+    //         a(href="#", onclick="navLateral()") menu 1
+    // .nav__lateral__contenido
+
+    //  JS requiere Jquery
+    // function navLateral(){
+    //   $('html').toggleClass( 'overflow');
+    //   $( '.nav__lateral--menu' ).toggleClass( 'slideInLeft');
+    //   $( '.nav__lateral--fondo' ).fadeToggle( 'fast');
+    //   $( '.nav__icon' ).toggleClass( 'icon-close icon-navicon')
+    // }
+
+    .nav__lateral{
+      @extend .nav;
+      position: fixed;
+      z-index: $index-3;
+      
+    
+      .nav__icon{
+        left: $nav__ico--margin;
+      }
+
+      &--fondo{
+        background-color: $opacity-2;
+        display: none;
+        left: 0;
+        position: fixed;
+        top: 0;
+      }
+
+      &--menu{
+        background-color: $nav--bg;
+        box-shadow: $nav--shadow;
+        height: 100vh;
+        left: -$nav__lateral--width;
+        position: absolute;
+        top: 0;
+        transition: $animation;
+        width: $nav__lateral--width;
+        a{
+          color: $nav--color;
+        }
+      }
+
+      &__contenido{
+        padding: $nav__lateral--contenido-padding;
+        transition: margin-left .3s ease-out;
+      }
+
+      .slideInLeft {
+        left: 0;
+      }
+
+    }
+
+  }
+    
+  @include respond-to(xl){
+    .nav{
+      a{
+        font-size: $nav--size-desk;
+      }
+    }
+    .nav__icon{
+      font-size: $nav__ico--size-desk;
+    }
+
+    @if $incluir__nav--barra == true{
+      .nav__barra{
+        .nav__icon{
+          display: none;
+        }
+        &>div{
+          height: $nav__barra--height-desk;
+          padding: 0;
+          justify-content: space-between;
+        }
+        &--espacio{
+          display: none;
+        }
+        &--logo{
+          width: $nav__logo--width-desk;
+        }
+        &--menu{
+          flex-direction: row;
+          position: relative;
+          top: initial;
+          margin-top: $nav__barra--top;
+          width: auto;
+          a{
+            padding: 0;
+            &:not(:last-child){
+              margin-right: $nav__barra--separation;
+            }
+          }
+        }
+      }
+    }
+
+    @if $incluir__nav--full == true{
+      .nav__full{
+        &--barra{
+          li{
+            &:not(last-child){
+              margin-bottom: $nav__full--separacion-desk;
+            }
+          }
+        }
+      }
+    }
+
+    @if $incluir__nav--lateral == true{
+      .nav__lateral{
+        .nav__icon{
+          display: none;
+        }
+        &--menu{
+          left: 0;
+        }
+        &__contenido{
+          margin-left: 15rem;
+          width: calc(100vw - 15rem);
+        }
+      }
+    }
+
+    
+  }
+}

@@ -1,0 +1,334 @@
+@if $incluir__form == true{
+  /* ------------------------------------
+        ·FORM
+    -------------------------------------*/
+  // SINTANXIS
+    // JADE
+    // form(action="").form
+    //     .c50-s
+    //       input(type="text", autocomplete="off")#nombre
+    //       label(for="nombre").form--label Nombre
+    //     .c100-s.form__select
+    //       label(for="seleccion").form__label Elija figura
+    //       select(name="figuras")#seleccion
+    //         option 
+    //         option(value="circulo") circulo
+    //     .c100-s
+    //       div
+    //         input(type="radio", name="gender", value="rojo")#rojo
+    //         label(for="rojo") rojo
+    //     .c100-s
+    //        div.form__file
+    //          input(type="file",multiple="multiple")
+    //          span.btn FILE
+    //          input(type="text", placeholder="Seleccione archivos").file_input
+    
+    // JS required Jquey
+    // function form(){
+    //   // INPUT
+    //   var elementos = 'input[type=text], input[type=password], input[type=email], input[type=url], input[type=tel], input[type=number], input[type=search], textarea, select';
+    //   $(document).on('focus',elementos, function () {
+    //     $(this).siblings('label').addClass('label--active');
+    //   });
+    //   $(document).on('blur',elementos, function () {
+    //     if($(this).val().length === 0){
+    //       $(this).siblings('label').removeClass('label--active');
+    //       $(this).removeClass('input--success'); // se puede quitar
+    //     }else{
+    //       $(this).addClass('input--success'); // se puede quitar
+    //     }
+    //   });
+    //   // INPUT:FILE
+    //   $(document).on('change', 'input[type="file"]', function () {
+    //       var path_input = $('.file_input');
+    //       var files      = $(this)[0].files;
+    //       var file_names = [];
+    //       for (var i = 0; i < files.length; i++) {
+    //         file_names.push(files[i].name);
+    //       }
+    //       path_input.val(file_names.join(" || "));
+    //       path_input.trigger('change');
+
+    //       if(path_input.val()){
+    //         path_input.addClass('input--success');
+    //       }else{
+    //         path_input.removeClass('input--success');
+    //       }
+    //     });
+    // }
+
+  .form{
+    padding: $form--padding;
+    background-color: $form--bg;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: $form--align;
+
+    &>div{
+      padding: $form--div;
+      position: relative;
+    }
+
+    // INPUT TEXTAREA SELECT -- COMUN -------------------------------------
+    input[type=text],
+    input[type=password],
+    input[type=email],
+    input[type=url],
+    input[type=time],
+    input[type=date],
+    input[type=datetime],
+    input[type=datetime-local],
+    input[type=tel],
+    input[type=number],
+    input[type=search],
+    textarea,
+    select{
+      max-width: 100%;
+      width: 100%;
+      border: none;
+      border-bottom: 1px solid $form--colorBase ;
+      background-color: $form__input--bg;
+      font-size: $form--size;
+      transition: all .3s ease-out;
+      &:focus{
+        border-bottom: 1px solid $form--colorSelect;
+        box-shadow: 0 1px 0 0 $form--colorSelect;
+      }
+    }
+
+    .input--success{
+      border-bottom: 1px solid $color-success!important;
+      box-shadow: 0 1px 0 0 $color-success!important;
+    }
+    .input--error{
+      border-bottom: 1px solid $color-error!important;
+      box-shadow: 0 1px 0 0 $color-error!important;
+    }
+    // LABEL -------------------------------------
+    label{
+      font-size: $form__label--size;
+      color: $form__label--color;
+    }
+    &__label{
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      font-size: $form__label--size;
+      transition: all .2s ease-out; 
+    }
+    .label--active{
+      color: $form--colorSelect;
+      top: 0;
+      font-size: ($form__label--size * .75);
+    }
+
+    
+
+    // SELECT -------------------------------------
+    select{
+      padding-right: 1.7rem;
+      border-radius: 0;
+      appearance: none;
+    }
+    &__select{
+      position: relative;
+      &:after{
+        content: '▾';
+        position: absolute;
+        top: 1rem;
+        right: 1.5rem;
+        z-index: 0;
+        @extend .wrapper;
+      }
+    }
+
+    // RADIO CHECKBOX -------------------------------------
+    @if $incluir__form--radio-checkbox == true{
+      // -- COMUN ---------------------------------
+      input[type="radio"],
+      input[type="checkbox"]{
+        &:not(:checked),
+        &:checked{
+          position: absolute;
+          left: -9999px;
+          opacity: 0;
+          &+ label{
+            position: relative;
+            padding-left: 35px;
+            margin-right: .5rem;
+            cursor: pointer;
+            display: inline-block;
+            height: 25px;
+            line-height: 25px;
+            -webkit-user-select: none; /* webkit (safari, chrome) browsers */
+            -moz-user-select: none; /* mozilla browsers */
+            -khtml-user-select: none; /* webkit (konqueror) browsers */
+            -ms-user-select: none; /* IE10+ */
+          }
+        }
+        &+ label:before,
+        &+ label:after{
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 0;
+          margin: 4px;
+          width: 16px;
+          height: 16px;
+          z-index: 0;
+          transition: .28s ease;
+          border: 2px solid $form--colorSelect;
+        }
+        &:not(:checked) + label:before,
+        &:not(:checked) + label:after {
+          border: 2px solid $form--colorBase ;
+        }
+        &:checked + label:after{
+          background-color: $form--colorSelect;
+          z-index: 0;
+        }
+        
+      }
+      
+      // RADIO -------------------------------------
+      input[type="radio"]{
+        &+ label:before,
+        &+ label:after {
+          border-radius: 50%;
+        }
+        &:not(:checked) + label:after {
+          z-index: -1;
+          transform: scale(0);
+        }
+        &:checked + label:after{
+          transform: scale(.5);
+        }
+        
+      }
+
+      // CHECKBOX -------------------------------------
+      input[type="checkbox"]{
+        &+ label:after {
+          border-radius: 2px;
+        }
+
+        &+ label:before,
+        &+ label:after {
+          content: '';
+          left: 0;
+          position: absolute;
+          /* .1s delay is for check animation */
+          transition: border .25s, background-color .25s, width .20s .1s, height .20s .1s, top .20s .1s, left .20s .1s;
+          z-index: 1;
+        }
+        &:not(:checked) + label:before {
+          width: 0;
+          height: 0;
+          border: 3px solid transparent;
+          left: 6px;
+          top: 10px;
+          transform: rotateZ(37deg);
+          transform-origin: 100% 100%;
+        }
+
+        &:not(:checked) + label:after {
+          height: 19px;
+          width: 19px;
+          background-color: transparent;
+          border: 2px solid $form--colorBase ;
+          top: 0px;
+          z-index: 0;
+        }
+
+        // Checked style
+        &:checked {
+          + label:before {
+            top: 2px;
+            left: 1px;
+            width: 8px;
+            height: 13px;
+            border-top: 2px solid transparent;
+            border-left: 2px solid transparent;
+            border-right: 2px solid white;
+            border-bottom: 2px solid white;
+            transform: rotateZ(37deg);
+            transform-origin: 100% 100%;
+          }
+
+          + label:after {
+            top: 0;
+            width: 19px;
+            height: 19px;
+            border: 2px solid $form--colorSelect;
+            background-color: $form--colorSelect;
+            z-index: 0;
+          }
+        }
+
+      }
+    }
+
+    // FILE -------------------------------------
+    @if $incluir__form--file  == true{
+      input[type=file] {
+        position: absolute;
+        top: 1rem;
+        right: 0;
+        left: 0;
+        bottom: 1rem;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        font-size: 20px;
+        cursor: pointer;
+        opacity: 0;
+        cursor: pointer;
+      }
+      &__file{
+        display: flex;
+        &:hover{
+          span{
+            box-shadow: $shadow-hover;
+            @include aclarar($form--colorSelect);
+          }
+        }
+        input{
+          cursor: pointer;
+          font-size: $form__label--size !important;
+        }
+        span{
+          background-color: $form--colorSelect;
+          padding: .5em 1.5em;
+          cursor: pointer;
+          margin-right: 1rem;
+        }
+      }
+    }
+  }
+  
+  .form--success{
+    background-color: $color-success!important;
+    border-radius: 50%!important;
+    font-family: 'icomoon' !important;
+    height: 3rem;
+    width: 3rem;
+    @extend .icon-check;
+  }
+ 
+  .form--error{ 
+    background-color: $color-error!important;
+    border-radius: 50%!important;
+    font-family: 'icomoon' !important;
+    height: 3rem;
+    position: relative;
+    width: 3rem;
+    @extend .icon-close;
+    &:after{
+      color: $color-error;
+      content: 'Error al enviar, intentelo nuevamente.';
+      right: 0;
+      position: absolute;
+      top: 0;
+    }
+  }
+}

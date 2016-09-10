@@ -1,0 +1,166 @@
+@if $incluir__sliders--bxslider == true{
+  /*------------------------------------
+    ·BX SLIDER
+  ------------------------------------*/
+  // JADE
+  // ul.bxslider
+  //     li
+  //       img(src="http://eslabrador.weebly.com/uploads/3/1/8/6/31860361/3554712_orig.jpg", alt="")
+  //     li
+  //       img(src="http://www.catnutrition.org/uploads/6/4/4/5/6445971/2252908_orig.jpg?419", alt="")
+  //     li
+  //       img(src="http://eslabrador.weebly.com/uploads/3/1/8/6/31860361/3554712_orig.jpg", alt="")
+  
+  // JS required JQUERY
+  // script(src="./js/lib/bxslider-4/dist/jquery.bxslider.min.js")
+  // function slider(){
+  //   $('.bxslider').bxSlider({
+  //     mode: 'fade', //'horizontal', 'vertical', 'fade'
+  //     speed: 500, // speed animation
+  //     pager: true, // icon pager
+  //     auto: false,
+  //     pause: 4000, // speed transition
+  //     infiniteLoop: false, 
+  //     hideControlOnEnd: true,
+  //     controls: true, // icon arrow
+  //     nextText:'',
+  //     prevText:'',
+  //   });
+  // }
+
+  .bx-wrapper {
+    position: relative;
+    padding: 0;
+    *zoom: 1;
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+    img {
+      max-width: 100%;
+      display: block;
+    }
+  }
+  .bx-wrapper 
+  .bxslider {
+    margin: 0;
+    padding: 0;
+  }
+  ul.bxslider {
+    list-style: none;
+  }
+  .bx-viewport {
+    -webkit-transform: translatez(0);
+  }
+  
+  .bx-wrapper {
+    background: #fff;
+
+    .bx-pager,
+    .bx-controls-auto{
+      position: absolute;
+      bottom: $bxslider--margin-bottom;
+      width: 100%;
+    }
+    //PAGER--------------------------------------------------------
+    .bx-pager {
+      text-align: center;
+      font-size: .85em;
+      font-family: Arial;
+      font-weight: bold;
+      color: #666;
+      z-index: $index-3;
+      &.bx-default-pager a {
+        text-indent: -9999px;
+        display: block;
+        width: $bxslider--point-size;
+        height: $bxslider--point-size;
+        margin: 0 5px;
+        outline: 0;
+        border-radius: 50%;
+        background-color: $bxslider--color;
+        transition: $animation;
+        &.active{
+          background-color: $bxslider--color-hover;
+        }
+      }
+    }
+    .bx-pager-item,
+    .bx-controls-auto .bx-controls-auto-item{
+      display: inline-block;
+      *zoom: 1;
+      *display: inline;
+    }
+    .bx-pager-item {
+      font-size: 0;
+      line-height: 0;
+    }
+
+    //DIRECTION CONTROLS (NEXT / PREV)--------------------------------------------------------
+
+    .bx-prev {
+      left: 0;
+      background: $bxslider--gradient--left ;
+      &:before{
+        content: "\f104";
+      }
+    }
+    .bx-next {
+      right: 0;
+      background: $bxslider--gradient--right;
+      &:before{
+        content: "\f105";
+      }
+       
+    }
+    .bx-controls-direction{
+      & a{
+        position: absolute;
+        top: 0;
+        outline: 0;
+        width: $bxslider--direction--width ;
+        height: 100%;
+        z-index: $index-3;
+        font-size: $bxslider--direction-size;
+        font-family: 'icomoon' !important;
+        color: $bxslider--color;
+        transition: $animation;
+        @extend .wrapper;
+        &.disabled {
+          display: none;
+        }
+        &:hover{
+          color: $bxslider--color-hover;
+        }
+      }
+    }
+
+
+  }
+
+
+
+  /* PAGER WITH AUTO-CONTROLS HYBRID LAYOUT */
+  .bx-wrapper .bx-controls.bx-has-controls-auto.bx-has-pager .bx-pager {
+    text-align: left;
+    width: 80%;
+  }
+  .bx-wrapper .bx-controls.bx-has-controls-auto.bx-has-pager .bx-controls-auto {
+    right: 0;
+    width: 35px;
+  }
+  /* IMAGE CAPTIONS */
+  .bx-wrapper .bx-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: #666;
+    background: rgba(80, 80, 80, 0.75);
+    width: 100%;
+  }
+  .bx-wrapper .bx-caption span {
+    color: #fff;
+    font-family: Arial;
+    display: block;
+    font-size: .85em;
+    padding: 10px;
+  }
+}

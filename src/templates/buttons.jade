@@ -1,0 +1,116 @@
+extends ./common/base.jade
+
+block vars
+  - var name = 'buttons'
+  - var title = 'Mi estilo - '+ name
+
+block content
+  .muestra
+    br
+    button.btn default
+    button.btn.btn--success success
+    button.btn.btn--info info
+    button.btn.btn--warning warning
+    button.btn.btn--error error
+    button.btn(disabled="disabled") disabled
+    br
+    br
+    button.btn__bordes default
+    button.btn__bordes.btn__bordes--success success
+    button.btn__bordes.btn__bordes--info info
+    button.btn__bordes.btn__bordes--warning warning
+    button.btn__bordes.btn__bordes--error error
+    button.btn__bordes.btn__bordes(disabled="disabled") disabled
+    br
+    br
+    .row 
+      .c100-s
+        ul.tabs
+          li.tab: a(href="#tab1") Jade
+          li.tab: a(href="#tab2") Html
+      .c100-s.tab__conte
+        #tab1 
+          pre.tab__codigo
+            code(data-language="html")
+              |  button.btn default
+              |  button.btn.btn--success success
+              |  button.btn.btn--info info
+              |  button.btn.btn--warning warning
+              |  button.btn.btn--error error
+              |  button.btn(disabled="disabled") disabled
+              |  
+              |  button.btn__bordes default
+              |  button.btn__bordes.btn__bordes--success success
+              |  button.btn__bordes.btn__bordes--info info
+              |  button.btn__bordes.btn__bordes--warning warning
+              |  button.btn__bordes.btn__bordes--error error
+              |  button.btn__bordes.btn__bordes(disabled="disabled") disabled
+        #tab2
+          pre.tab__codigo
+            code(data-language="html")
+              | &lt;button class="btn">default&lt;/button>
+              | &lt;button class="btn btn--success">success&lt;/button>
+              | &lt;button class="btn btn--info">info&lt;/button>
+              | &lt;button class="btn btn--warning">warning&lt;/button>
+              | &lt;button class="btn btn--error">error&lt;/button>
+              | &lt;button disabled="disabled" class="btn">disabled&lt;/button>
+              |  
+              | &lt;button class="btn__bordes">default&lt;/button>
+              | &lt;button class="btn__bordes btn__bordes--success">success&lt;/button>
+              | &lt;button class="btn__bordes btn__bordes--info">info&lt;/button>
+              | &lt;button class="btn__bordes btn__bordes--warning">warning&lt;/button>
+              | &lt;button class="btn__bordes btn__bordes--error">error&lt;/button>
+              | &lt;button disabled="disabled" class="btn__bordes btn__bordes">disabled&lt;/button>
+    br
+    br
+    button.btn.btn--xs button
+    button.btn.btn--s button
+    button.btn button
+    button.btn.btn--l button
+    br
+    br
+    button.btn.btn--circle.icon-plus
+    button.btn.btn--circle.icon-close
+    button.btn.btn--circle.icon-pencil
+    button.btn.btn--circle.icon-angle-left
+    button.btn.btn--circle.icon-angle-right
+    button.btn.btn--circle.icon-angle-up
+    button.btn.btn--circle.icon-angle-down 
+    br
+    br
+    .row 
+      .c100-s
+        ul.tabs
+          li.tab: a(href="#tab3") Jade
+          li.tab: a(href="#tab4") Html
+      .c100-s.tab__conte
+        #tab3 
+          pre.tab__codigo
+            code(data-language="html")
+              | button.btn.btn--xs button
+              | button.btn.btn--s button
+              | button.btn button
+              | button.btn.btn--l button
+              
+              | button.btn.btn--circle.icon-plus
+              | button.btn.btn--circle.icon-close
+              | button.btn.btn--circle.icon-pencil
+              | button.btn.btn--circle.icon-angle-left
+              | button.btn.btn--circle.icon-angle-right
+              | button.btn.btn--circle.icon-angle-up
+              | button.btn.btn--circle.icon-angle-down
+        #tab4
+          pre.tab__codigo
+            code(data-language="html")
+              | &lt;button class="btn btn--xs">button&lt;/button>
+              | &lt;button class="btn btn--s">button&lt;/button>
+              | &lt;button class="btn">button&lt;/button>
+              | &lt;button class="btn btn--l">button&lt;/button>
+              |  
+              | &lt;button class="btn btn--circle icon-plus">&lt;/button>
+              | &lt;button class="btn btn--circle icon-close">&lt;/button>
+              | &lt;button class="btn btn--circle icon-pencil">&lt;/button>
+              | &lt;button class="btn btn--circle icon-angle-left">&lt;/button>
+              | &lt;button class="btn btn--circle icon-angle-right">&lt;/button>
+              | &lt;button class="btn btn--circle icon-angle-up">&lt;/button>
+              | &lt;button class="btn btn--circle icon-angle-down"> &lt;/button>

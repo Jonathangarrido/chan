@@ -1,0 +1,130 @@
+@if $incluir__tabs == true{
+  /*------------------------------------
+    ·TABS
+  ------------------------------------*/
+
+  // JADE
+  // .row
+  //   .c100-s
+  //     ul.tabs
+  //       li.tab
+  //         a(href="#tab1") tab 1
+  //       li.tab
+  //         a(href="#tab2") tab 2
+  //   .c100-s.tab__conte
+  //     #tab1 
+  //       pre.tab__codigo
+  //         code(data-language="html")
+  //           | .row
+  //           |   .c100-s
+  //           |     ul.tabs
+  //           |       li.tab
+  //           |         a(href="#tab1") tab 1
+  //           |       li.tab
+  //           |         a(href="#tab2") tab 2
+  //           |     .c100-s.tab__conte
+  //           |       #tab1 tab1
+  //           |       #tab2 tab2
+  //     #tab2 
+  //       pre.tab__codigo
+  //         code(data-language="javascript")
+  //           | function tab(){
+  //           |   var $tab = $('.tab a'),
+  //           |   $tabGroup = $('.tab__conte').children('div'),
+  //           |   $target;
+  //           |   $('.tabs .tab:first-child a').addClass('indicator');
+  //           |   $('.tab__conte > div:first-of-type').show();
+  //           |   $tab.click(function(){
+  //           |     $target = $(this).attr('href');
+  //           |     $($tab).removeClass('indicator');
+  //           |     $(this).addClass('indicator');
+  //           |     $($tabGroup).hide();
+  //           |     $($target).show();
+  //           |   });
+  //           | }
+  // JS required JQUERY
+  // function tab(){
+  //   var $tab = $('.tab a');
+  //   $('.tabs .tab:first-child a').addClass('indicator');
+  //   $('.tab__conte > div:first-of-type').show(); 
+
+  //   $tab.click(function(e){
+  //     e.preventDefault();
+  //     var $ambito = $(this).parents(':eq(3)'),
+  //     $tabGroup = $ambito.children('.tab__conte').children('div'),
+  //     $target;
+  //     $target = $(this).attr('href');
+  //     $ambito.find('a').removeClass('indicator');
+  //     $(this).addClass('indicator');
+  //     $($tabGroup).hide(); 
+  //     $($target).show();
+  //   });
+  // }
+  .tabs {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    height: $tabs--height;
+    background-color: $tabs--bg;
+    margin: 0 auto;
+    width: 100%;
+    white-space: nowrap;
+    border-radius: $tabs--radius;
+    box-shadow: $tabs--shadow;
+    &__conte{
+      position: relative;
+      margin: $tabs__conte--margin;
+    } 
+  }
+  .tab{
+    flex-grow: 1;
+    text-align: center;
+    overflow: hidden;
+    min-width: $tabs--min-width;
+    height: 100%;
+    a {
+      display: flex;
+      justify-content: center;
+      line-height: $tabs--height;
+      color: $tabs__link--color;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      transition: all .3s;
+      border-bottom: 0px transparent solid;
+      &:hover {
+        color: lighten($tabs__link--color, 20%);
+      }
+    }
+    &__conte{
+      width: 100%;
+      max-height: $tabs__conte--max-height;
+      overflow-y: scroll;
+      position: relative;
+      background-color: $tabs__conte--bg ;
+      > div{
+        display: none;
+      }
+    }
+    &__codigo{
+      background: $tabs__codigo-bg;
+      margin: 0;
+      padding: $tabs__codigo--padding;
+      border: $tabs__codigo--border;
+      overflow: auto;
+      text-align: left;
+      line-height: $tabs__codigo--line-height;
+    }
+  }
+  .indicator {
+    border-bottom: $tabs__link--active--height $tabs__link--active--color solid!important;
+  }
+ 
+  @include respond-to(xl){
+    .tab{
+      &__conte{
+        max-height: $tabs__conte--max-height-desk;
+      }
+    }
+  }
+}

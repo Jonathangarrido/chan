@@ -1,0 +1,31 @@
+extends ./common/base.jade
+
+block vars
+  - var name = 'video'
+  - var title = 'Mi estilo - '+ name
+
+block content
+  .muestra
+    .video
+      div
+        iframe(src="https://www.youtube.com/embed/mZ20sM2-ZAg?&rel=0&autohide=2&border=0&wmode=opaque&enablejsapi=1&showinfo=0", frameborder="0")
+    .row.conte-tabs 
+      .c100-s
+        ul.tabs
+          li.tab: a(href="#tab1") Jade
+          li.tab: a(href="#tab2") Html
+      .c100-s.tab__conte
+        #tab1 
+          pre.tab__codigo
+            code(data-language="html")
+              | .video
+              |   div
+              |     iframe(src="https://www.youtube.com/embed/mZ20sM2-ZAg?&rel=0&autohide=2&border=0&wmode=opaque&enablejsapi=1&showinfo=0", frameborder="0")
+        #tab2
+          pre.tab__codigo
+            code(data-language="html")
+              | &lt;div class="video">
+              |   &lt;div>
+              |     &lt;iframe src="https://www.youtube.com/embed/mZ20sM2-ZAg?&amp;rel=0&amp;autohide=2&amp;border=0&amp;wmode=opaque&amp;enablejsapi=1&amp;showinfo=0" frameborder="0">&lt;/iframe>
+              |   &lt;/div>
+              | &lt;/div> 

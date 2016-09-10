@@ -1,0 +1,98 @@
+@if $incluir__modal == true{
+  /*------------------------------------
+    ·MODAL
+  ------------------------------------*/
+
+  // JADE
+  // button(onclick="modal()").btn MODAL
+  // span(onclick="modal(this)") ****** con contenido
+  //
+  // section.modal
+  //   .wrapper
+  //     .modal--cerrar(onclick="modal()") 
+  //     article.modal__article
+  //       span.h4 
+  //       p 
+  //       button(onclick="modal()").btn CERRAR
+
+  // JS JQUERY
+  // function modal(){
+  //   var modal= $('.modal');
+  //   var conte= $('.modal__article');
+  //   $('html').toggleClass( 'overflow'); 
+
+  //  ****** con contenido *********************************
+  //   if(contenido){ 
+  //     var $padre= $(contenido).parents(':eq(1)'),
+  //         color= $padre.css('background-color'),
+  //         contenedor= $('.modal__article');
+  //     $('.modal > div').css('background-color',color) ;
+  //     contenedor.css('background-color','transparent');
+  //     var contenido = $padre.children('.conoce--iconos').html() + $padre.children('.conoce--txt').html() + $padre.children('.conoce--txt--full').html();
+  //     $('.modal--contenido').html(contenido);
+  //   }
+  // *******************************************************
+
+  //   modal.fadeToggle();
+  //   conte.toggleClass('modal--in');
+  // }
+
+  .modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    z-index: $index-4;
+    &>div{
+      background-color: $modal--bg;
+      width: 100vw;
+      height: 100vh;
+      position: relative;
+      padding: 1rem;
+    }
+    &__article{
+      position: relative;
+      top: 5rem;
+      opacity: 0;
+      background-color: $modal__conte--bg;
+      border-radius: $radius;
+      padding: $modal__conte--padding;
+      max-width: $modal__conte--width;
+      max-height: 90vh;
+      overflow-y: scroll;
+      overflow-x: visible;
+      transition: $animation;
+      
+    }
+    &--cerrar{
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100vw;
+    }
+    .btn--cerrar{
+      position: fixed;
+      top: 0;
+      right: 0;
+      background-color: $color-error;
+    }
+    .modal--in{
+      opacity: 1;
+      top: 0;
+    }
+    
+  }
+  @include respond-to(m){
+    .modal{
+      &__article{
+        padding: $modal__conte--padding-desk;
+      }
+      .btn--cerrar{
+        top: 2vh;
+        right: 4vw;
+      }
+    }
+  }
+    
+}

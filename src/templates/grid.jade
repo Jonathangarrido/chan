@@ -1,0 +1,70 @@
+
+extends ./common/base.jade
+
+block vars
+  - var name = 'grid'
+  - var title = 'Mi estilo - '+ name
+
+block content 
+  .muestra
+    .row.center-txt.grilla
+      .c100-s c100
+      .c50-s c50
+      .c50-s c50
+      .c33-s c33
+      .c33-s c33
+      .c33-s c33
+      .c25-s c25
+      .c25-s c25
+      .c25-s c25
+      .c25-s c25
+      .c20-s c20
+      .c20-s c20
+      .c20-s c20
+      .c20-s c20
+      .c20-s c20
+    .row.tabs__conte 
+      .c100-s
+        ul.tabs
+          li.tab: a(href="#tab1") Jade
+          li.tab: a(href="#tab2") Html
+      .c100-s.tab__conte
+        #tab1 
+          pre.tab__codigo
+            code(data-language="html")
+              | .row
+              |   .c100-s c100
+              |   .c50-s c50
+              |   .c50-s c50
+              |   .c33-s c33
+              |   .c33-s c33
+              |   .c33-s c33
+              |   .c25-s c25
+              |   .c25-s c25
+              |   .c25-s c25
+              |   .c25-s c25
+              |   .c20-s c20
+              |   .c20-s c20
+              |   .c20-s c20
+              |   .c20-s c20
+              |   .c20-s c20
+        #tab2 
+          pre.tab__codigo
+            code(data-language="html")
+              | &lt;div class="row">
+              |   &lt;div class="c100-s">c100&lt;/div>
+              |   &lt;div class="c50-s">c50&lt;/div>
+              |   &lt;div class="c50-s">c50&lt;/div>
+              |   &lt;div class="c33-s">c33&lt;/div>
+              |   &lt;div class="c33-s">c33&lt;/div>
+              |   &lt;div class="c33-s">c33&lt;/div>
+              |   &lt;div class="c25-s">c25&lt;/div>
+              |   &lt;div class="c25-s">c25&lt;/div>
+              |   &lt;div class="c25-s">c25&lt;/div>
+              |   &lt;div class="c25-s">c25&lt;/div>
+              |   &lt;div class="c20-s">c20&lt;/div>
+              |   &lt;div class="c20-s">c20&lt;/div>
+              |   &lt;div class="c20-s">c20&lt;/div>
+              |   &lt;div class="c20-s">c20&lt;/div>
+              |   &lt;div class="c20-s">c20&lt;/div>
+              | &lt;/div>

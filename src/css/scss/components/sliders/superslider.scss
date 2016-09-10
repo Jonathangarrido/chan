@@ -1,0 +1,104 @@
+@if $incluir__sliders--superslider == true{
+  /*------------------------------------
+    ·SLIDERS
+  ------------------------------------*/
+
+  // JADE
+  // #slides
+  //   .slides-container
+  //     img(src="http://eslabrador.weebly.com/uploads/3/1/8/6/31860361/3554712_orig.jpg", alt="")
+  //     img(src="http://www.catnutrition.org/uploads/6/4/4/5/6445971/2252908_orig.jpg?419", alt="")
+  //   nav(class="slides-navigation") 
+  //     a(href="#" class="prev").icon-angle-left
+  //     a(href="#" class="next").icon-angle-right
+  //
+  // JS required JQUERY
+  // script(src="./js/lib/superslides/dist/jquery.superslides.min.js")
+  // function slider(){
+  //   $('#slides').superslides({
+  //     animation: 'fade', // 'slide', 'fade''
+  //     play: 4000, //
+  //   });
+  // }
+
+  #slides {
+    position: relative;
+
+    .slides-container {
+      display: none;
+    }
+ 
+    .scrollable {
+      *zoom: 1;
+      position: relative;
+      top: 0;
+      left: 0;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      height: 100%;
+      &:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+    }
+
+  }
+  .slides-navigation {
+    margin: 0 auto;
+    position: absolute;
+    z-index: $index-3;
+    top: 50%;
+    width: 100%;
+    margin-top: calc(#{$superslider--direction-heigth} / -2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: $superslider--direction-heigth;
+    padding: 0 1rem;
+    a {
+      font-size: $superslider--direction-size;
+      color: $superslider--color ;
+      transition: $animation;
+      text-shadow: $shadow;
+      .prev {
+        left: 0;
+      }
+      .next {
+        right: 0;
+      }
+      &:hover{
+        color: $superslider--color-hover;
+      }
+
+    }
+  }
+  .slides-pagination {
+    position: absolute;
+    z-index: 3;
+    bottom: $superslider--margin-bottom ;
+    text-align: center;
+    width: 100%;
+    a {
+      border: 1px solid rgba(black, .2);
+      border-radius: 50%;
+      width: $superslider--point-size;
+      height: $superslider--point-size;
+      display: -moz-inline-stack;
+      display: inline-block;
+      vertical-align: middle;
+      *vertical-align: auto;
+      zoom: 1;
+      *display: inline;
+      margin: 2px;
+      overflow: hidden;
+      text-indent: -100%;
+      background-color: $superslider--color;
+      transition: $animation;
+    }
+    .current {   
+      background-color: $superslider--color-hover;
+    }
+  }
+
+}

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+  <head>
+    <title>Mi estilo - form </title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700" type="text/css">
+    <link rel="stylesheet" href="./css/main.css">
+  </head>
+  <body>
+    <!--[if lt IE 9]>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <nav class="nav__lateral"><span onclick="navLateral()" class="nav__icon icon-navicon"></span>
+      <div onclick="navLateral()" class="nav__lateral--fondo full"></div>
+      <nav class="nav__lateral--menu wrapper">
+        <ul>
+          <li><a href="index.html">base</a>
+          </li>
+          <li><a href="grid.html">grid</a>
+          </li>
+          <li><a href="icons.html">icons</a>
+          </li>
+          <li><a href="buttons.html">buttons</a>
+          </li>
+          <li><a class="active">form</a>
+          </li>
+          <li><a href="video.html">video</a>
+          </li>
+          <li><a href="table.html">table</a>
+          </li>
+          <li><a href="card.html">card</a>
+          </li>
+          <li><a href="modal.html">modal</a>
+          </li>
+          <li><a href="tabs.html">tabs</a>
+          </li>
+          <li><a href="slider.html">slider</a>
+          </li>
+          <li><a href="helpers.html">helpers</a>
+          </li>
+        </ul>
+      </nav>
+    </nav>
+    <section class="nav__lateral__contenido">
+      <header class="titulo h2 wrapper">form</header>
+      <section class="contenido">
+        <div class="muestra">
+          <div class="row"> 
+            <div class="c100-s">
+              <ul class="tabs">
+                <li class="tab"><a href="#tabform1">Jade</a></li>
+                <li class="tab"><a href="#tabform2">Html</a></li>
+                <li class="tab"><a href="#tabform3">JS</a></li>
+              </ul>
+            </div>
+            <div class="c100-s tab__conte">
+              <div id="tabform1">
+                <pre class="tab__codigo">form(action="").form</pre>
+              </div>
+              <div id="tabform2">
+                <pre class="tab__codigo">&lt;form action="" class="form">
+&lt;/form></pre>
+              </div>
+              <div id="tabform3">
+                <pre class="tab__codigo"> 
+function form(){
+  // INPUT
+  var elementos = 'input[type=text], input[type=password], input[type=email], input[type=url], input[type=tel], input[type=number], input[type=search], textarea, select';
+  $(document).on('focus',elementos, function () {
+    $(this).siblings('label').addClass('label--active');
+  });
+  $(document).on('blur',elementos, function () {
+    if($(this).val().length === 0){
+      $(this).siblings('label').removeClass('label--active');
+      $(this).removeClass('input--success'); // se puede quitar
+    }else{
+      $(this).addClass('input--success'); // se puede quitar
+    }
+  });
+  // INPUT:FILE
+  $(document).on('change', 'input[type="file"]', function () {
+    var path_input = $('.file_input');
+    var files      = $(this)[0].files;
+    var file_names = [];
+    for (var i = 0; i < files.length; i++) {
+      file_names.push(files[i].name);
+    }
+    path_input.val(file_names.join(" || "));
+    path_input.trigger('change');
+    if(path_input.val()){
+      path_input.addClass('input--success');
+    }else{
+      path_input.removeClass('input--success');
+    }
+  });
+}</pre>
+              </div>
+            </div>
+          </div>
+          <div class="conte-form">
+            <form action="" class="form">
+              <div class="c100-s h5 destacado">INPUT  </div>
+              <div class="c100-s">
+                <input type="text" autocomplete="off" id="nombre">
+                <label for="nombre" class="form__label">Nombre</label>
+              </div>
+              <div class="c100-s h5 destacado">TEXTAREA</div>
+              <div class="c100-s">
+                <textarea id="comentario" name=""></textarea>
+                <label for="comentario" class="form__label">Nombre</label>
+              </div>
+            </form>
+            <div class="row"> 
+              <div class="c100-s">
+                <ul class="tabs">
+                  <li class="tab"><a href="#input1">Jade</a></li>
+                  <li class="tab"><a href="#input2">Html</a></li>
+                </ul>
+              </div>
+              <div class="c100-s tab__conte">
+                <div id="input1">
+                  <pre class="tab__codigo">.c100-s
+  input(type="text", autocomplete="off")#nombre
+  label(for="nombre").form__label Nombre
+.c100-s
+  textarea#comentario(name="")
+  label(for="comentario").form__label Nombre</pre>
+                </div>
+                <div id="input2">
+                  <pre class="tab__codigo">&lt;div class="c100-s">
+  &lt;input type="text" autocomplete="off" id="nombre">
+  &lt;label for="nombre" class="form__label">Nombre&lt;/label>
+&lt;/div>
+&lt;div class="c100-s">
+  &lt;textarea id="comentario" name="">&lt;/textarea>
+  &lt;label for="comentario" class="form__label">Nombre&lt;/label>
+&lt;/div></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="conte-form">
+            <form action="" class="form">
+              <div class="c100-s h5 destacado">SELECT</div>
+              <div class="c100-s form__select">
+                <label for="seleccion" class="form__label">Elija figura</label>
+                <select name="figuras" id="seleccion">
+                  <option> </option>
+                  <option value="circulo">circulo</option>
+                  <option value="cuadrado">cuadrado</option>
+                  <option value="triangulo">triangulo</option>
+                </select>
+              </div>
+            </form>
+            <div class="row"> 
+              <div class="c100-s">
+                <ul class="tabs">
+                  <li class="tab"><a href="#select1">Jade</a></li>
+                  <li class="tab"><a href="#select2">Html</a></li>
+                </ul>
+              </div>
+              <div class="c100-s tab__conte">
+                <div id="select1">
+                  <pre class="tab__codigo">.c100-s.form__select
+  label(for="seleccion").form__label Elija figura
+  select(name="figuras")#seleccion
+    option 
+    option(value="circulo") circulo
+    option(value="cuadrado") cuadrado
+    option(value="triangulo") triangulo</pre>
+                </div>
+                <div id="select2">
+                  <pre class="tab__codigo">&lt;div class="c100-s form__select">
+  &lt;label for="seleccion" class="form__label">Elija figura&lt;/label>
+  &lt;select name="figuras" id="seleccion">
+    &lt;option> &lt;/option>
+    &lt;option value="circulo">circulo&lt;/option>
+    &lt;option value="cuadrado">cuadrado&lt;/option>
+    &lt;option value="triangulo">triangulo&lt;/option>
+  &lt;/select>
+&lt;/div></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="conte-form">
+            <form action="" class="form">
+              <div class="c100-s h5 destacado">RADIO</div>
+              <div class="c100-s">
+                <div>
+                  <input type="radio" name="color" value="rojo" id="rojo">
+                  <label for="rojo">rojo</label>
+                  <input type="radio" name="color" value="azul" id="azul">
+                  <label for="azul">azul</label>
+                  <input type="radio" name="color" value="verde" id="verde">
+                  <label for="verde">verde</label>
+                </div>
+              </div>
+              <div class="c100-s h5 destacado">CHECKBOX</div>
+              <div class="c100-s">
+                <div>
+                  <input type="checkbox" name="transporte" value="bicicleta" id="bicicleta">
+                  <label for="bicicleta">bicicleta</label>
+                  <input type="checkbox" name="transporte" value="skate" id="skate">
+                  <label for="skate">skate</label>
+                  <input type="checkbox" name="transporte" value="patines" id="patines">
+                  <label for="patines">patines </label>
+                </div>
+              </div>
+            </form>
+            <div class="row"> 
+              <div class="c100-s">
+                <ul class="tabs">
+                  <li class="tab"><a href="#radio1">Jade </a></li>
+                  <li class="tab"><a href="#radio2">Html</a></li>
+                </ul>
+              </div>
+              <div class="c100-s tab__conte">
+                <div id="radio1">
+                  <pre class="tab__codigo">.c100-s
+  div
+    input(type="radio", name="color", value="rojo")#rojo
+    label(for="rojo") rojo
+    input(type="radio", name="color", value="azul")#azul
+    label(for="azul") azul
+    input(type="radio", name="color", value="verde")#verde
+    label(for="verde") verde
+.c100-s
+  div
+    input(type="checkbox", name="transporte", value="bicicleta")#bicicleta
+    label(for="bicicleta") bicicleta
+    input(type="checkbox", name="transporte", value="skate")#skate
+    label(for="skate") skate
+    input(type="checkbox", name="transporte", value="patines")#patines
+    label(for="patines") patines </pre>
+                </div>
+                <div id="radio2">
+                  <pre class="tab__codigo">&lt;div class="c100-s">
+  &lt;div>
+    &lt;input type="radio" name="color" value="rojo" id="rojo">
+    &lt;label for="rojo">rojo&lt;/label>
+    &lt;input type="radio" name="color" value="azul" id="azul">
+    &lt;label for="azul">azul&lt;/label>
+    &lt;input type="radio" name="color" value="verde" id="verde">
+    &lt;label for="verde">verde&lt;/label>
+  &lt;/div>
+&lt;/div>
+&lt;div class="c100-s">
+  &lt;div>
+    &lt;input type="checkbox" name="transporte" value="bicicleta" id="bicicleta">
+    &lt;label for="bicicleta">bicicleta&lt;/label>
+    &lt;input type="checkbox" name="transporte" value="skate" id="skate">
+    &lt;label for="skate">skate&lt;/label>
+    &lt;input type="checkbox" name="transporte" value="patines" id="patines">
+    &lt;label for="patines">patines &lt;/label>
+  &lt;/div>
+&lt;/div></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="conte-form">
+            <form action="" class="form">
+              <div class="c100-s h5 destacado">FILE</div>
+              <div class="c100-s">
+                <div class="form__file">
+                  <input type="file" multiple="multiple"><span class="btn">FILE</span>
+                  <input type="text" placeholder="Seleccione archivos" class="file_input">
+                </div>
+              </div>
+            </form>
+            <div class="row"> 
+              <div class="c100-s">
+                <ul class="tabs">
+                  <li class="tab"><a href="#file1">Jade</a></li>
+                  <li class="tab"><a href="#file2">Html</a></li>
+                </ul>
+              </div>
+              <div class="c100-s tab__conte">
+                <div id="file1">
+                  <pre class="tab__codigo">.c100-s
+  div.form__file
+    input(type="file",multiple="multiple")
+    span.btn FILE
+    input(type="text", placeholder="Seleccione archivos").file_input</pre>
+                </div>
+                <div id="file2">
+                  <pre class="tab__codigo">&lt;div class="c100-s">
+  &lt;div class="form__file">
+    &lt;input type="file" multiple="multiple">&lt;span class="btn">FILE&lt;/span>
+    &lt;input type="text" placeholder="Seleccione archivos" class="file_input">
+  &lt;/div>
+&lt;/div></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+          <form action="php/form.php" class="form">
+            <input type="text">
+            <input type="text">
+            <button class="btn">Enviar </button>
+          </form>
+        </div>
+      </section>
+    </section>
+    <script src="./js/lib/jquery/dist/jquery.min.js"></script>
+    <script src="./js/lib/superslides/dist/jquery.superslides.min.js"></script>
+    <script src="./js/lib/bxslider-4/dist/jquery.bxslider.min.js"></script>
+    <script src="./js/main.min.js"></script>
+  </body>
+</html>
