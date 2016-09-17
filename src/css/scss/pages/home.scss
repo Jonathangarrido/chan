@@ -108,7 +108,7 @@
 }
 @include respond-to(l){
   .poster{
-    background: url('#{$image-dir}/poster-2.jpg') no-repeat center;
+    background: url('#{$image-dir}/poster.jpg') no-repeat center;
     background-size: cover;
     height: 80vh;
     width: 100vw;
@@ -134,6 +134,9 @@
         height: 10rem;
       }
     } 
+    &--punto{
+
+    }
   }
 
   .contacto{
