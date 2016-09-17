@@ -80,6 +80,7 @@
       color: white;
       font-size: 3rem;
       cursor: pointer;
+      z-index: $index-4;
     }
     .modal--in{
       opacity: 1;
