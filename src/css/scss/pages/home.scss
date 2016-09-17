@@ -10,6 +10,13 @@
   padding: 0 1rem;
   position: relative;
   @include triangulo_big_after(white);
+  &--perfil{
+    border: solid .5rem white;
+    max-width: 20rem;
+    position: relative;
+    margin: 0 auto 1rem;
+  }
+
   &--biografia{
     background-color: white;
     box-shadow: $shadow;
@@ -17,9 +24,6 @@
     padding: 2rem;
     position: relative;
     top: -1rem;
-    p{
-      margin-bottom: 0;
-    }
   }
   &--frase{
     font-style: italic;
@@ -34,20 +38,74 @@
 .campana{
   background-color: #CC4815;
   color: white;
-  padding: 13rem 0 7rem;
+  padding: 8rem 0 3rem;
   text-align: center;
+  position: relative;
+  @include triangulo_big_after(#CC4815);
   &--punto{
     padding: 2rem 1rem;
-   
-    span{
-      font-size: 5rem;
+    h3{
+      color: white;
+      font-weight: lighter;
+    }
+    &:hover svg{
+      animation: pulse .5s;
+    }
+  }
+  
+
+  &--ico{
+    margin-bottom: .5rem;
+    transform-origin: center;
+    svg{
+      fill: white;
+      height: 5rem;
     }
   } 
+
 }
 .contacto{
-  padding: 6rem 0;
+  background-color: darken($color-base, 15%);
+  padding: 8rem 0 3rem;
+  &>div{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+  }
+  a{
+    align-items: center;
+    color: white;
+    display: flex;
+    font-size: 1rem;
+    font-weight: lighter;
+    &:hover span{
+      transform: scale(1.2,1.2); 
+      text-shadow: $shadow-hover;
+    }
+  }
+  span{
+    color: white;
+    font-size: 3rem;
+    transition: $animation;
+    margin-right: 1rem;
+  }
+  
 }
-
+@include respond-to(m){
+  .contacto{
+    &>div{
+      flex-direction: row;
+    }
+    a{
+      flex-direction: column;
+    }
+    span{
+      margin-right: 0;
+    }
+    
+  }
+}
 @include respond-to(l){
   .poster{
     background: url('#{$image-dir}/poster-2.jpg') no-repeat center;
@@ -67,5 +125,38 @@
       text-align: center;
     }
     
+  }
+  .campana{
+    padding: 13rem 0 7rem;
+    &--ico{
+      margin-bottom: .5rem;
+      svg{
+        height: 10rem;
+      }
+    } 
+  }
+
+  .contacto{
+    &>div{
+      flex-direction: row;
+    }
+    span{
+      font-size: 4rem;
+    }
+    
+  }
+}
+
+@keyframes pulse {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
   }
 }

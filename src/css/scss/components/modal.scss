@@ -66,22 +66,47 @@
     }
     &--cerrar{
       position: absolute;
-      top: 0;
-      left: 0;
+      top: 1rem;
+      right: 1rem;
       height: 100vh;
       width: 100vw;
+      color: white;
+      z-index: $index-4;
     }
     .btn--cerrar{
       position: fixed;
-      top: 0;
-      right: 0;
-      background-color: $color-error;
+      top: 1rem;
+      right: 1rem;
+      color: white;
+      font-size: 3rem;
+      cursor: pointer;
     }
     .modal--in{
       opacity: 1;
       top: 0;
     }
     
+    &__conte--oculto{
+      display: none;
+    }
+    &__conte{
+      & .modal__conte--oculto{
+        display: inline-block;
+      }
+    }
+    .modal--contenido{
+      text-align: center;
+      color: white;
+      h3{
+        color: white;
+      }
+      p,ul {
+        text-align: left;
+      }
+      &>:last-child{
+        display: none;
+      }
+    }
   }
   @include respond-to(m){
     .modal{
@@ -89,8 +114,8 @@
         padding: $modal__conte--padding-desk;
       }
       .btn--cerrar{
-        top: 2vh;
-        right: 4vw;
+        top: 1rem;
+        right: 1rem;
       }
     }
   }

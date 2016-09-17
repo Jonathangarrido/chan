@@ -16,6 +16,10 @@
   @include max-width(800px);
   position: relative;
 }
+.contenedor-full{
+  @include max-width(1440px);
+  position: relative;
+}
 
 .overflow{
   overflow: hidden;

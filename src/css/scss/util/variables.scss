@@ -2,24 +2,24 @@
   ========================================================================== */
 
 $incluir__grid						     : true;
-$incluir__grid--v-h            : true;
+$incluir__grid--v-h            : false;
 $incluir__icons                : true;
-$incluir__nav                  : true;
-$incluir__nav--barra           : true;
-$incluir__nav--full            : true;
-$incluir__nav--lateral         : true;
+$incluir__nav                  : false;
+$incluir__nav--barra           : false;
+$incluir__nav--full            : false;
+$incluir__nav--lateral         : false;
 $incluir__buttons              : true;
-$incluir__buttons--bordes      : true;
-$incluir__form                 : true;
-$incluir__form--radio-checkbox : true;
-$incluir__form--file           : true;
-$incluir__video                : true;
-$incluir__table                : true;
-$incluir__card                 : true;
+$incluir__buttons--bordes      : false;
+$incluir__form                 : false;
+$incluir__form--radio-checkbox : false;
+$incluir__form--file           : false;
+$incluir__video                : false;
+$incluir__table                : false;
+$incluir__card                 : false;
 $incluir__modal                : true;
-$incluir__tabs                 : true;
-$incluir__sliders--bxslider    : true;
-$incluir__sliders--superslider : true;
+$incluir__tabs                 : false;
+$incluir__sliders--bxslider    : false;
+$incluir__sliders--superslider : false;
 
 /**
  * Table of Contents:
