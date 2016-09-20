@@ -93,6 +93,10 @@
   
 }
 @include respond-to(m){
+  .poster{
+    background: url('#{$image-dir}/poster.jpg') no-repeat center;
+    background-size: cover;
+  }
   .contacto{
     &>div{
       flex-direction: row;
@@ -108,8 +112,6 @@
 }
 @include respond-to(l){
   .poster{
-    background: url('#{$image-dir}/poster.jpg') no-repeat center;
-    background-size: cover;
     height: 80vh;
     width: 100vw;
   }
