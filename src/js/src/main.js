@@ -1,20 +1,5 @@
 'use strict';
 
-(function () {
-
-  ////////////////////////////////////
-
-  active();
-
-
-
-
-})();
-
-function active(){
-  
-} 
-
 var nav =  (function(){
 
   var settings = {
