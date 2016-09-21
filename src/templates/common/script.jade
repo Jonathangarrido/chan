@@ -1,5 +1,7 @@
-script(src="./js/lib/jquery/dist/jquery.min.js")
-//- script(src="./js/lib/superslides/dist/jquery.superslides.min.js")
-//- script(src="./js/lib/bxslider-4/dist/jquery.bxslider.min.js")
-script(src="./js/src/main.js")
-script(src="./js/src/analytic.js") 
+if produccion
+  script(src="./js/lib/jquery/dist/jquery.min.js")
+  script(src="./js/src/main.js")
+  script(src="./js/src/analytic.js") 
+
+else
+  script(src="./js/main.min.js")
