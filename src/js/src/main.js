@@ -47,7 +47,6 @@ var modal = (function(){
         $(modal).fadeToggle();
         settings.$conte.toggleClass('modal--in');
         settings.$conte.scrollTop(0);
-        console.log('asdasd')
       },
 
       close = function(){
