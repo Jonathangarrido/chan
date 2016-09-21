@@ -27,7 +27,7 @@
             </p>
             <p class="modal__conte--oculto">Hoy me levanto con mucha determinación y fuerza para poder recuperar y mantener, los espacios para deporte, terrenos para viviendas, costumbres y raíces de nosotros. No solo me levanto por mis para mis hijos, con el tiempo he conocido gente tanto del movimiento de pobladores por la dignidad y comité nidales, que me han hecho creer que no solo es un deber mío, es un deber de todos nosotros recuperar estos recuerdos y sentimientos.<br><br>Por eso los invito en estas elecciones municipales a que voten por Barnechea, voten por su gente. Que no nos quiten la identidad y la dignidad<br><br>Por eso con fuerza digo A VIVIR CON DIGNIDAD !!!!</p>
             <div class="right-txt">
-              <button onclick="modal.conte(this)" class="btn">Más información</button>
+              <button onclick="modal.conte(this);ga('send', 'event', 'desplegar', 'biografia')" class="btn">Más información</button>
             </div>
           </div>
           <h2 class="info--frase h5">"El trabajo social está antes que la política, en esto se trabaja todo el año y no sólo en elección."</h2>
@@ -69,7 +69,7 @@
               <li>Equipamiento para calistenia en las plazas.</li>
             </ul>
             <div class="center-txt">
-              <button onclick="modal.conte(this)" class="btn btn--xs">Más información</button>
+              <button onclick="modal.conte(this);ga('send', 'event', 'desplegar', 'Deporte')" class="btn btn--xs">Más información</button>
             </div>
           </div>
           <div class="c100-s c50-l c25-xl campana--punto"> 
@@ -98,7 +98,7 @@
               <li>La municipalidad deber  aportar con cursos y recetas con comida sana y variable.</li>
             </ul>
             <div class="center-txt">
-              <button onclick="modal.conte(this)" class="btn btn--xs">Más información</button>
+              <button onclick="modal.conte(this);ga('send', 'event', 'desplegar', 'Alimentación')" class="btn btn--xs">Más información</button>
             </div>
           </div>
           <div class="c100-s c50-l c25-xl campana--punto"> 
@@ -123,7 +123,7 @@
               <li>Más ayuda a comités de vivienda, dar soluciones reales y no que la solución se cambiar de comuna.</li>
             </ul>
             <div class="center-txt">
-              <button onclick="modal.conte(this)" class="btn btn--xs">Más información</button>
+              <button onclick="modal.conte(this);ga('send', 'event', 'desplegar', 'Viviendas')" class="btn btn--xs">Más información</button>
             </div>
           </div>
           <div class="c100-s c50-l c25-xl campana--punto"> 
@@ -155,7 +155,7 @@
             <p class="h5"> Muchos vecinos sin sus estudios escolares completos.</p>
             <p class="modal__conte--oculto">La municipalidad debe actuar de manera más activa en la nivelación dela enseñanza básica y media, para todos los vecinos que no han terminado su colegiatura, debemos apoyar proyectos como la Universidad Popular Cura Jimmy de manera constante.</p>
             <div class="center-txt">
-              <button onclick="modal.conte(this)" class="btn btn--xs">Más información</button>
+              <button onclick="modal.conte(this);ga('send', 'event', 'desplegar', 'Educación')" class="btn btn--xs">Más información</button>
             </div>
           </div>
         </div>
@@ -173,15 +173,7 @@
       </footer>
     </section>
     <script src="./js/lib/jquery/dist/jquery.min.js"></script>
-    <script src="./js/main.min.js"></script>
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-      
-      ga('create', 'UA-84478690-1', 'auto');
-      ga('send', 'pageview');
-    </script>
+    <script src="./js/main.js"></script>
+    <script src="./js/analytic.js"></script>
   </body>
 </html>
