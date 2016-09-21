@@ -55,9 +55,6 @@ var gulp = require('gulp'),
     });
 
 
-
-
-
 gulp.task('watch', function() {
   gulp.watch(['./src/templates/**/*.jade'], ['templates']);
   gulp.watch(['./src/css/**/*.scss'], ['css']);
@@ -66,3 +63,55 @@ gulp.task('watch', function() {
 
 
 gulp.task('default', ['server','watch']);
+
+
+
+
+
+
+
+// PRODUCCION
+  // Servidor produccion
+    gulp.task('compiled-server', function(){
+      connect.server({
+        root: './dist',
+        port: 7777,
+        livereload: true
+      });
+    })
+  // Compila los template a html o php
+    gulp.task('compiled-templates', function() {
+      gulp.src('./src/templates/*.jade')
+        .pipe(jade({ // jade:html | jadephp: php
+          pretty: false, // true: no compress | false: compress
+        }))
+        .pipe(gulp.dest('./dist'));
+    });
+  // Preprocesa archivos SASS a CSS y recarga los cambios
+    gulp.task('compiled-css', function() {
+      gulp.src('./src/css/scss/main.scss')
+        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))// compact | compressed
+        .pipe(autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }))
+        .pipe(concat('./main.min.css'))
+        .pipe(gulp.dest('./dist/css/'));
+    });
+  // Busca errores en el JS y nos los muestra por pantalla
+    gulp.task('compiled-js', function() {
+      return gulp.src([
+        './src/js/lib/jquery/dist/jquery.min.js',
+        './src/js/src/main.js',
+        './src/js/src/analytic.js',
+      ])
+        .pipe(uglify())
+        .pipe(concat('./main.min.js'))
+        .pipe(gulp.dest('./dist/js/'));
+    });
+  // copiar archivos extras
+    gulp.task('compiled-copy', function() {
+      gulp.src('./src/fonts/**')  
+        .pipe(gulp.dest('./dist/fonts'));
+      gulp.src('./src/images/**')  
+        .pipe(gulp.dest('./dist/images'));
+    });
+
+gulp.task('produccion', ['compiled-templates','compiled-css','compiled-js','compiled-copy','compiled-server']);
